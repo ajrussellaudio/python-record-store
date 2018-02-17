@@ -4,5 +4,5 @@ from app.models.artist import Artist
 
 @app.route("/artists")
 def artists_index():
-    artist = Artist("Radiohead")
-    return artist.shout_name()
+    artists = [Artist("Radiohead"), Artist("Photek"), Artist("Lightning Bolt"), Artist("Rolling Stones")]
+    return render_template('artists/index.html', artists=artists)
