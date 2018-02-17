@@ -25,6 +25,12 @@ pip install -r requirements.txt
 export FLASK_APP=record-store.py
 ```
 
+* If you want live reloading, set Flask to debug mode:
+
+```bash
+export FLASK_DEBUG=1
+```
+
 * Start Flask:
 
 ```bash
