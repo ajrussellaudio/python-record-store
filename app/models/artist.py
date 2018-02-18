@@ -16,3 +16,8 @@ class Artist():
         sql = "SELECT * FROM artists"
         results = SqlQuery.run(sql)
         return [Artist(**row) for row in results]
+
+    @staticmethod
+    def delete_all():
+        sql = "DELETE FROM artists"
+        SqlQuery.run(sql)

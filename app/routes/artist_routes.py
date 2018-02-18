@@ -4,6 +4,7 @@ from app.models.artist import Artist
 
 @app.route("/artists")
 def artists_index():
+    Artist.delete_all()
     Artist(name="Beastie Boys").save()
     Artist(name="Radiohead").save()
     Artist(name="Photek").save()
