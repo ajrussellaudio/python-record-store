@@ -19,13 +19,6 @@ source .env/bin/activate
 pip install -r requirements.txt
 ```
 
-* Create a PostgreSQL database:
-
-```bash
-createdb record-store
-psql -d record-store -f ./db/record-store.sql
-```
-
 * Set `FLASK_APP` environment variable to this app:
 
 ```bash
@@ -36,6 +29,19 @@ export FLASK_APP=record-store.py
 
 ```bash
 export FLASK_DEBUG=1
+```
+
+* Create a PostgreSQL database:
+
+```bash
+createdb record-store
+psql -d record-store -f ./db/record-store.sql
+```
+
+* Seed the database:
+
+```bash
+flask seed_db
 ```
 
 * Start Flask:
