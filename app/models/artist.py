@@ -18,6 +18,13 @@ class Artist():
         return [Artist(**row) for row in results]
 
     @staticmethod
+    def find(id):
+        sql = "SELECT * FROM artists WHERE id = %s"
+        values = (id,)
+        result = SqlQuery.run(sql, values)
+        return Artist(**result[0])
+
+    @staticmethod
     def delete_all():
         sql = "DELETE FROM artists"
         SqlQuery.run(sql)

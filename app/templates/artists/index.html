@@ -3,7 +3,9 @@
 {% block content %}
 <ul>
   {% for artist in artists %}
-  <li>{{ artist.id }} - {{ artist.name }}</li>
+  <li>
+    <a href="/artists/{{ artist.id }}">{{ artist.name }}</a>
+  </li>
   {% endfor %}
 </ul>
 {% endblock %}
