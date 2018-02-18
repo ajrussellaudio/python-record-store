@@ -35,7 +35,7 @@ export FLASK_DEBUG=1
 
 ```bash
 createdb record-store
-psql -d record-store -f ./db/record-store.sql
+psql -d record-store -f ./app/db/record-store.sql
 ```
 
 * Seed the database:
