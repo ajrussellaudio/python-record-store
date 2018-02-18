@@ -1,5 +1,6 @@
 from app.models.SqlQuery import SqlQuery
 
+
 class Album:
     def __init__(self, **kwargs):
         self.id = kwargs.get('id', None)
@@ -12,6 +13,13 @@ class Album:
         values = (self.title, self.stock, self.artist_id)
         result = SqlQuery.run(sql, values)
         self.id = result[0]['id']
+
+    def artist(self):
+        from app.models.artist import Artist
+        sql = "SELECT * FROM artists WHERE id = %s"
+        values = (self.artist_id,)
+        result = SqlQuery.run(sql, values)
+        return Artist(**result[0])
 
     @staticmethod
     def all():

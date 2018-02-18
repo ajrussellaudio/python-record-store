@@ -1,5 +1,5 @@
 from app.models.SqlQuery import SqlQuery
-from app.models.album import Album
+
 
 class Artist():
     def __init__(self, **kwargs):
@@ -13,6 +13,7 @@ class Artist():
         self.id = result[0]['id']
 
     def albums(self):
+        from app.models.album import Album
         sql = "SELECT * FROM albums WHERE artist_id = %s"
         values = (self.id,)
         results = SqlQuery.run(sql, values)

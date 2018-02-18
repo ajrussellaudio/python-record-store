@@ -1,9 +1,22 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<ul>
-  {% for album in albums %}
-      <li>{{ album.title }}</li>
-  {% endfor %}
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Album Title</th>
+      <th>Artist</th>
+      <th>Stock Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for album in albums %}
+    <tr>
+      <td>{{ album.title }}</td>
+      <td>{{ album.artist().name }}</td>
+      <td>{{ album.stock }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}
