@@ -3,4 +3,10 @@
 {% block content %}
 <h1>{{ artist.name }}</h1>
 <p>ID: {{ artist.id }}</p>
+<p>Albums:</p>
+<ul>
+  {% for album in artist.albums() %}
+    <li>{{ album.title }}</li>
+  {% endfor %}
+</ul>
 {% endblock %}
