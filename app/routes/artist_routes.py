@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, request, redirect
 from app import app
 from app.models.artist import Artist
 
@@ -11,3 +11,13 @@ def artists_index():
 def artists_show(id):
     artist = Artist.find(id)
     return render_template('artists/show.html', title=artist.name, artist=artist)
+
+@app.route("/artists/new")
+def artists_new():
+    return render_template('artists/new.html')
+
+@app.route("/artists", methods=["POST"])
+def artists_create():
+    artist = Artist(name=request.form['name'])
+    artist.save()
+    return redirect("/artists")
