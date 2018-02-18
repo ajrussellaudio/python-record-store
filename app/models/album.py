@@ -14,6 +14,12 @@ class Album:
         self.id = result[0]['id']
 
     @staticmethod
+    def all():
+        sql = "SELECT * FROM albums"
+        results = SqlQuery.run(sql)
+        return [Album(**row) for row in results]
+
+    @staticmethod
     def delete_all():
         sql = "DELETE FROM albums"
         SqlQuery.run(sql)
