@@ -1,6 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block content %}
+<p><a href="{{ url_for('artists_new') }}">New Artist</a></p>
 <ul>
   {% for artist in artists %}
   <li>
