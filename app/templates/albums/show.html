@@ -5,4 +5,5 @@
 <h3>by {{ album.artist().name }}</h3>
 <p>ID: {{ album.id }}</p>
 <p>Stock: {{ album.stock }}</p>
+<p><a href="/albums/{{ album.id }}/edit">Edit</a></p>
 {% endblock %}

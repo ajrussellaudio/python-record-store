@@ -25,3 +25,9 @@ def albums_create():
 def albums_show(id):
     album = Album.find(id)
     return render_template('albums/show.html', album=album)
+
+@app.route("/albums/<id>/edit")
+def albums_edit(id):
+    album = Album.find(id)
+    artists = Artist.all()
+    return render_template('albums/edit.html', album=album, artists=artists)
