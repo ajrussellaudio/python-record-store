@@ -18,6 +18,6 @@ def artists_new():
 
 @app.route("/artists", methods=["POST"])
 def artists_create():
-    artist = Artist(name=request.form['name'])
+    artist = Artist(**request.form.to_dict())
     artist.save()
     return redirect("/artists")
