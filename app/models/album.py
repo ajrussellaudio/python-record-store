@@ -14,6 +14,11 @@ class Album:
         result = SqlQuery.run(sql, values)
         self.id = result[0]['id']
 
+    def update(self):
+        sql = "UPDATE albums SET (title, stock, artist_id) = (%s, %s, %s) WHERE id = %s"
+        values = (self.title, self.stock, self.artist_id, self.id)
+        SqlQuery.run(sql, values)
+
     def artist(self):
         from app.models.artist import Artist
         sql = "SELECT * FROM artists WHERE id = %s"

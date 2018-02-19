@@ -15,9 +15,7 @@ def albums_new():
 
 @app.route("/albums", methods=["POST"])
 def albums_create():
-    title = request.form['title']
-    artist_id = int(request.form['artist_id'])
-    album = Album(title=title, artist_id=artist_id)
+    album = Album(**request.form.to_dict(flat=True))
     album.save()
     return redirect("/albums")
 
@@ -31,3 +29,9 @@ def albums_edit(id):
     album = Album.find(id)
     artists = Artist.all()
     return render_template('albums/edit.html', album=album, artists=artists)
+
+@app.route("/albums/<id>/update", methods=["POST"])
+def albums_update(id):
+    album = Album(**request.form.to_dict(flat=True), id=id)
+    album.update()
+    return redirect("/albums/" + id)
