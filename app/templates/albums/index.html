@@ -14,7 +14,7 @@
     <tr>
       <td><a href="/albums/{{ album.id }}">{{ album.title }}</a></td>
       <td><a href="/artists/{{ album.artist().id }}">{{ album.artist().name }}</a></td>
-      <td>{{ album.stock }}</td>
+      <td class="stock-level--{{ album.stock_level() }}">{{ album.stock }}</td>
     </tr>
     {% endfor %}
   </tbody>

@@ -26,6 +26,14 @@ class Album:
         result = SqlQuery.run(sql, values)
         return Artist(**result[0])
 
+    def stock_level(self):
+        if self.stock > 5:
+            return 'high'
+        elif self.stock > 2:
+            return 'medium'
+        else:
+            return 'low'
+
     @staticmethod
     def all():
         sql = "SELECT * FROM albums"
