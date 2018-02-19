@@ -2,3 +2,13 @@ td.stock-level--low {
   background-color: red;
   color: maroon;
 }
+
+td.stock-level--medium {
+  background-color: yellow;
+  color: darkorange;
+}
+
+td.stock-level--high {
+  background-color: lightgreen;
+  color: darkgreen;
+}
