@@ -26,6 +26,11 @@ class Album:
         result = SqlQuery.run(sql, values)
         return Artist(**result[0])
 
+    def delete(self):
+        sql = "DELETE FROM albums WHERE id = %s"
+        values = (self.id,)
+        SqlQuery.run(sql, values)
+
     def stock_level(self):
         if self.stock > 5:
             return 'high'

@@ -8,6 +8,7 @@
       <th>Album Title</th>
       <th>Artist</th>
       <th>Stock Quantity</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -16,6 +17,11 @@
       <td><a href="/albums/{{ album.id }}">{{ album.title }}</a></td>
       <td><a href="/artists/{{ album.artist().id }}">{{ album.artist().name }}</a></td>
       <td class="stock-level--{{ album.stock_level() }}">{{ album.stock }}</td>
+      <td>
+        <form action="/albums/{{ album.id }}/delete" method="POST">
+          <input type="submit" value="Delete!">
+        </form>
+      </td>
     </tr>
     {% endfor %}
   </tbody>

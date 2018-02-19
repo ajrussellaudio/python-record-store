@@ -35,3 +35,9 @@ def albums_update(id):
     album = Album(**request.form.to_dict(), id=id)
     album.update()
     return redirect("/albums/" + id)
+
+@app.route("/albums/<id>/delete", methods=["POST"])
+def albums_delete(id):
+    album = Album.find(id)
+    album.delete()
+    return redirect("/albums")
