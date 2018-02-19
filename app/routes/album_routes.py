@@ -20,3 +20,8 @@ def albums_create():
     album = Album(title=title, artist_id=artist_id)
     album.save()
     return redirect("/albums")
+
+@app.route("/albums/<id>")
+def albums_show(id):
+    album = Album.find(id)
+    return render_template('albums/show.html', album=album)

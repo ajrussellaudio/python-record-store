@@ -12,7 +12,7 @@
   <tbody>
     {% for album in albums %}
     <tr>
-      <td>{{ album.title }}</td>
+      <td><a href="/albums/{{ album.id }}">{{ album.title }}</a></td>
       <td>{{ album.artist().name }}</td>
       <td>{{ album.stock }}</td>
     </tr>

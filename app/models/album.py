@@ -28,6 +28,13 @@ class Album:
         return [Album(**row) for row in results]
 
     @staticmethod
+    def find(id):
+        sql = "SELECT * FROM albums WHERE id = %s"
+        values = (id,)
+        result = SqlQuery.run(sql, values)
+        return Album(**result[0])
+
+    @staticmethod
     def delete_all():
         sql = "DELETE FROM albums"
         SqlQuery.run(sql)

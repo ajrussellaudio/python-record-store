@@ -1,0 +1,8 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>{{ album.title }}</h1>
+<h3>by {{ album.artist().name }}</h3>
+<p>ID: {{ album.id }}</p>
+<p>Stock: {{ album.stock }}</p>
+{% endblock %}
