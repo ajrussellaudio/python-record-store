@@ -14,7 +14,7 @@ def artists_show(id):
 
 @app.route("/artists/new")
 def artists_new():
-    return render_template('artists/new.html')
+    return render_template('artists/new.html', title="New Artist")
 
 @app.route("/artists", methods=["POST"])
 def artists_create():
